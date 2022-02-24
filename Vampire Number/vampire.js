@@ -44,3 +44,29 @@ let fangPerms=(number)=>{ //generates all possible numbers that are vampire.leng
     }
     return list;
 }
+let isVampire=(number)=>{
+    if(number.toString().length%2==1) return false;
+    let [[bool],[fangs]]=fangHunter(number)
+    return bool;
+}
+
+let vampireHunter=(i,j)=>{
+    let tab=[]
+    if(j==undefined){
+        j=i
+        i=0;
+        for(let found=0;found<=j;i++){
+            if(isVampire(i)){
+                tab.push(i)
+                found++
+            }
+        }
+    }
+   else{
+        for(;i<=j;i++){
+            if(isVampire(i)) tab.push(i)
+        }
+    }
+    return tab.length==0?"None":tab;
+}
+console.log(vampireHunter(0,200000))
