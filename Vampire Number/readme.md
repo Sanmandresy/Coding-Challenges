@@ -1,2 +1,3 @@
-In order to use it: Install node V16.13.0
-then open this file on your IDE : I use VSCode so I have to run "node vampire.js" on it 
+In order to use it: Install node V16.13.0 and VSCode
+then open the "vampire.js" and change the value of the console.log() following the comments i let;
+thanks for trying my little app !

@@ -1,21 +1,28 @@
-//Given a 8 digit vampire Number , you must find its fangs
-
-/*A number n with 2k  digits is called vampire there exists two numbers  x  and  y  of  k  digits each
-such that n=x*y  and that x  and y  together have the same digits of  n.
-Moreover, to exclude numbers which can be trivially obtained from smaller ones, x  and  y  cannot end both in 0.*/
-
-let fangHunter=(vampire)=>{ //function to hunt a given vampire number's fangs next we will try a less restricted fangHunter
-    let tab=[];
-    for(let i=1234;i<=9876;i++)
-        if(vampire%i==0) tab.push(i.toString()) //we get a list of all of the numbers who divide the vampire
-
-    for(let i=0;i<tab.length;i++)
-        for(let j=i+1;j<tab.length;j++)
-            if(Number(tab[i])*Number(tab[j])==vampire) //simple application of the "fang" definition 
-                return tab[i]+" "+tab[j];
-        return false
+import {fangHunter,fangPerms} from "./fanghunter.js"
+let isVampire=(number)=>{//function which verifies if a number is a vampire one or not
+    if(number.toString().length%2==1) return false;
+    let [[bool],[fangs]]=fangHunter(number)
+    return bool;
 }
-console.log(fangHunter(13269258))
-/*
-We'll try to code a vampireHunter and a less restricted fangHunter soon :)
-*/
+//Currently it can find the 8 first vampire numbers but not more ! next update'll be released soon
+let vampireHunter=(i,j)=>{ //a function to list vampire numbers either it list the n first ones or the n vampire numbers in a range a,b : a<n<b
+    let tab=[]
+    if(j==undefined){
+        j=i
+        i=0;
+        for(let found=0;found<j;i++){
+            if(isVampire(i)){
+                tab.push(i)
+                found++
+            }
+        }
+    }
+   else{
+        for(;i<=j;i++){
+            if(isVampire(i)) tab.push(i)
+        }
+    }
+    return tab.length==0?"None":tab;
+}
+//console.log(vampireHunter(8)) //shows the 8 first vampire numbers
+console.log(vampireHunter(0,200000)) //shows the vampire numbers between 0 and 200000 that it can find
