@@ -1,0 +1,17 @@
+{
+  "name": "battledev-yoghurts",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "battledev1(2020).js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.1",
+    "y": "^0.3.2"
+  }
+}
