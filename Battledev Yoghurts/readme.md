@@ -1,3 +1,7 @@
+To make it work open the terminal and write npm install
+then write node "link that drives to the file '.js'"
+if you want to try with other datas you have to change what's wrote in "table=" and follow the pattern 
+
 Objective
 You are in charge of carrying out an exciting marketing study on the packaging of a new 
 organic yoghurt issued from short circuits. Even if you regret to see a "responsible" 
